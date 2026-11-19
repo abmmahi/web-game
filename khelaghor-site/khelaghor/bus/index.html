@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>আরো আগায়ে যান মামা! (Aro Agaye Jan Mama) – ফ্রি বাংলা অনলাইন গেম</title>
+<meta name="description" content="আরো আগায়ে যান মামা! (Aro Agaye Jan Mama): ঢাকার লোকাল বাসের হেলপার হয়ে যাত্রী তোলো, ভাড়া আদায় করো, মতিঝিল পৌঁছাও। ফ্রি বাংলা অনলাইন গেম।">
+<meta name="keywords" content="আরো আগায়ে যান মামা, Aro Agaye Jan Mama, ঢাকার বাস গেম, Dhaka bus conductor game, Bangla browser game">
+<meta name="author" content="Mahee">
+<link rel="canonical" href="https://YOUR-SITE.vercel.app/bus/">
+<meta property="og:type" content="website"><meta property="og:title" content="আরো আগায়ে যান মামা! (Aro Agaye Jan Mama) – ফ্রি বাংলা অনলাইন গেম"><meta property="og:description" content="আরো আগায়ে যান মামা! (Aro Agaye Jan Mama): ঢাকার লোকাল বাসের হেলপার হয়ে যাত্রী তোলো, ভাড়া আদায় করো, মতিঝিল পৌঁছাও। ফ্রি বাংলা অনলাইন গেম।"><meta property="og:url" content="https://YOUR-SITE.vercel.app/bus/"><meta property="og:locale" content="bn_BD">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="আরো আগায়ে যান মামা! (Aro Agaye Jan Mama) – ফ্রি বাংলা অনলাইন গেম"><meta name="twitter:description" content="আরো আগায়ে যান মামা! (Aro Agaye Jan Mama): ঢাকার লোকাল বাসের হেলপার হয়ে যাত্রী তোলো, ভাড়া আদায় করো, মতিঝিল পৌঁছাও। ফ্রি বাংলা অনলাইন গেম।">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoGame", "name": "আরো আগায়ে যান মামা!", "alternateName": ["Aro Agaye Jan Mama", "Aro Agiye Jan Mama", "Aro Agaye Jan Mama bus game"], "description": "আরো আগায়ে যান মামা! (Aro Agaye Jan Mama): ঢাকার লোকাল বাসের হেলপার হয়ে যাত্রী তোলো, ভাড়া আদায় করো, মতিঝিল পৌঁছাও। ফ্রি বাংলা অনলাইন গেম।", "url": "https://YOUR-SITE.vercel.app/bus/", "inLanguage": "bn", "genre": "Casual", "gamePlatform": ["Web browser", "Android", "iOS"], "applicationCategory": "Game", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BDT"}, "author": {"@type": "Person", "name": "Mahee", "url": "https://abmmahi.github.io"}, "isPartOf": {"@type": "WebSite", "name": "খেলাঘর", "url": "https://YOUR-SITE.vercel.app/"}}</script>
+<meta name="theme-color" content="#2b2d42">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#2b2d42;overflow:hidden;touch-action:none;font-family:'Hind Siliguri',system-ui,sans-serif;color:#fff8e7;-webkit-user-select:none;user-select:none}
+canvas{display:block;width:100%;height:100%}
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:20px;background:rgba(30,32,50,.88)}
+.screen.hide,#bar.hide{display:none}
+h1{margin:0;font-size:clamp(40px,11vw,72px);line-height:1.15;font-weight:700}
+p{margin:0;max-width:30ch;font-size:18px;line-height:1.5}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+button{font:inherit;font-weight:700;font-size:17px;padding:12px 18px;border:0;border-radius:14px;background:#ffd23f;color:#3a2410;cursor:pointer}
+button.alt{background:#fff8e7}
+button:disabled{opacity:.35}
+button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#bar{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(100%,460px);display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px;padding:8px 10px calc(10px + env(safe-area-inset-bottom))}
+#bar button{padding:14px 4px;font-size:16px;line-height:1.2}
+#sq{background:#ff7a59}
+.paper{background:#f4ecd8;color:#1b1b1b;width:min(94vw,440px);padding:16px 18px;border:3px double #1b1b1b;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.mast{font-size:34px;font-weight:700;border-bottom:2px solid #1b1b1b;padding-bottom:4px}
+.meta{font-size:13px;margin:6px 0 10px;opacity:.75}
+.paper h2{margin:0 0 12px;font-size:clamp(22px,6.2vw,30px);line-height:1.3}
+.stats{font-size:15px;line-height:1.6;border-top:1px solid #1b1b1b;padding-top:8px}
+.home{position:fixed;left:8px;bottom:calc(92px + env(safe-area-inset-bottom));z-index:20;padding:6px 14px;border-radius:999px;background:rgba(0,0,0,.5);color:#fff;font:700 14px 'Hind Siliguri',sans-serif;text-decoration:none}
+</style>
+</head>
+<body>
+<a class="home" href="/">← হোম</a>
+<canvas id="c"></canvas>
+<div id="bar" class="hide">
+  <button id="sq">আরো আগায়ে যান মামা!</button>
+  <button id="go2">চলো ওস্তাদ!</button>
+  <button id="tea">চা-পানি ☕</button>
+</div>
+<div class="screen" id="start">
+  <h1>আরো আগায়ে<br>যান মামা!</h1>
+  <p>তুমি বাসের হেলপার। যাত্রী তোলো, ভাড়া আদায় করো, মতিঝিল পর্যন্ত পৌঁছাও।</p>
+  <p>স্টপে যাত্রীকে ট্যাপ করে তোলো। হলুদ ৳-তে ট্যাপ করে ভাড়া নাও। লাল ৳ মানে সে পরের স্টপেই নামবে!</p>
+  <button id="go">রাস্তায় নামুন</button>
+</div>
+<div class="screen hide" id="over">
+  <div class="paper">
+    <div class="mast">দৈনিক ঠাসাঠাসি</div>
+    <div class="meta" id="pm"></div>
+    <h2 id="ph"></h2>
+    <div class="stats" id="ps"></div>
+  </div>
+  <div class="row"><button id="again">আবার চালান</button><button class="alt" id="share">শেয়ার করো</button></div>
+</div>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const cv=$('c'),ctx=cv.getContext('2d');
+const F='"Hind Siliguri",sans-serif';
+const toBn=n=>String(Math.round(n)).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]).replace('-','−');
+let W,H,gw,gx,hudH=76,phH,busTop,bh,busX,busW,pavTop;
+function resize(){
+  const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+  cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+  gw=Math.min(W,460);gx=(W-gw)/2;phH=H*.22;busTop=hudH+phH+14;bh=Math.min(230,H*.34);
+  busX=gx+8;busW=gw-16;pavTop=hudH+phH*.62;
+}
+addEventListener('resize',resize);resize();
+
+let ac;
+function tone(f,d,type='square',v=.05,delay=0){
+  if(!ac)return;try{const o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+delay;
+    o.type=type;o.frequency.setValueAtTime(f,s);g.gain.setValueAtTime(v,s);g.gain.exponentialRampToValueAtTime(.001,s+d);
+    o.connect(g).connect(ac.destination);o.start(s);o.stop(s+d)}catch(e){}
+}
+const sCoin=()=>{tone(880,.07,'triangle',.06);tone(1320,.1,'triangle',.06,.07)};
+const sBad=()=>tone(150,.15,'sawtooth',.06);
+const sTap=()=>tone(520,.05,'triangle',.04);
+const sHorn=()=>{tone(300,.25,'sawtooth',.07);tone(380,.25,'sawtooth',.05)};
+const sSiren=()=>[700,500,700,500].forEach((f,i)=>tone(f,.18,'square',.04,i*.18));
+
+const STOPS=['মহাখালী','ফার্মগেট','শাহবাগ','গুলিস্তান','মতিঝিল'],LAST=4,STOPT=8,DRIVET=9,BASECAP=14;
+const SQ=['সামনে অনেক জায়গা, আগায়ে যান!','আরো আগায়ে যান মামা!','ভাই একটু ঢুকেন!','গেটে দাঁড়াইয়েন না!','পিছনে খালি, যান যান!'];
+const QUIP=['ভাই ব্রেক মারেন!','পা মাড়াইলেন!','হেল্পার, ভাড়া কত?','এই বাস যাবে তো?','জানালা খুলেন!','মামা, ছুটা নাই!','আমার স্টপ আসছে?','ভাই চাপ দিয়েন না!'];
+let st='menu',t=0,dist=0,phT=0,si=0,money=0,rage=0,sq=0,pass=[],pops=[],sayO=null,quipT=2,stat={},pol={},bld=[];
+for(let i=0,s=11;i<26;i++){s=(s*9301+49297)%233280;bld.push({w:34+s%40,h:.18+(s%100)/100*.42,c:s%3})}
+const BTW=bld.reduce((a,b)=>a+b.w+4,0);
+
+const inside=()=>pass.filter(p=>p.st==='in').length;
+const cap=()=>BASECAP+3*sq;
+function slotPos(s){
+  const ix=busX+14,iw=busW-28,iy=busTop+16,ih=bh-78,col=s%10,row=Math.floor(s/10);
+  return{x:ix+(col+.5)*iw/10,y:iy+ih*(row+.5)/2+6};
+}
+function mk(dest){
+  const stu=Math.random()<.25,barg=!stu&&Math.random()<.2;
+  return{e:stu?(Math.random()<.5?'👦':'👧'):['👨','👩','🧔','👵','🧓','🧑'][Math.floor(Math.random()*6)],
+    dest,fare:stu?10:(Math.random()<.5?20:30),need:barg?2:1,st:'wait',x:0,y:0,tx:0,ty:0,slot:-1,fade:1};
+}
+function pop(x,y,text,col='#fff',size=20){pops.push({x,y,text,col,size,life:1.3})}
+function say(text){sayO={text,life:1.8}}
+function start(){
+  if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}
+  if(ac&&ac.state==='suspended')ac.resume();
+  money=0;rage=0;si=0;pass=[];pops=[];sayO=null;dist=0;
+  stat={boarded:0,cheat:0,left:0,sq:0,bribe:0,fine:0};
+  const legs=[0,1,2,3].sort(()=>Math.random()-.5);pol={legs:[legs[0],legs[1]],active:false,done:false,t:0,bribed:false};
+  $('start').classList.add('hide');$('over').classList.add('hide');
+  newStop(0);
+}
+function newStop(i){
+  si=i;st='stop';phT=STOPT;sq=0;
+  pass.forEach(p=>{
+    if(p.st==='in'&&p.dest===i){
+      if(p.need>0){stat.cheat++;pop(p.x,p.y-30,'ভাড়া না দিয়েই নামল!','#ff6b6b',17);sBad()}
+      p.st='out';p.tx=p.x+(Math.random()-.5)*70;p.ty=pavTop+24;rage=Math.max(0,rage-1);
+    }
+  });
+  if(i===LAST){st='arrived';setTimeout(()=>finish(true),1300);return}
+  const n=Math.min(5+i,8),cols=[0,1,2,3,4,5,6,7].sort(()=>Math.random()-.5).slice(0,n);
+  cols.forEach(c=>{
+    const p=mk(i+1+Math.floor(Math.random()*(LAST-i)));
+    p.x=p.tx=gx+gw*(c+.5)/8;p.y=p.ty=pavTop+24;pass.push(p);
+  });
+}
+function depart(){
+  const w=pass.filter(p=>p.st==='wait');
+  if(w.length){stat.left+=w.length;rage=Math.min(100,rage+2.5*w.length);pop(W/2,pavTop,toBn(w.length)+' জন পড়ে রইল!','#ff6b6b',20)}
+  w.forEach(p=>{p.st='out';p.ty=pavTop+10});
+  st='drive';phT=DRIVET;pol.done=false;pol.active=false;sHorn();say('চলো ওস্তাদ!');
+}
+function finish(win){
+  st='over';
+  $('pm').textContent='ঢাকা · '+new Date().toLocaleDateString('bn-BD',{day:'numeric',month:'long',year:'numeric'});
+  const s=stat;let h;
+  if(!win)h=s.sq>=5?'আরো আগায়ে যেতে যেতে জায়গা শেষ, ক্ষুব্ধ যাত্রীদের হাতে কন্ডাক্টর':s.left>=8?toBn(s.left)+' যাত্রীকে ফেলে চলে গেল বাস, ফুঁসছে ঢাকা':'যাত্রীদের তোপের মুখে কন্ডাক্টর, মাঝপথেই থামল বাস';
+  else h=s.cheat>=4?'ভাড়া না দিয়েই নামলেন '+toBn(s.cheat)+' যাত্রী, হতবাক কন্ডাক্টর':s.fine>0?'ওভারলোডে জরিমানা, তবু মতিঝিল পৌঁছাল ঠাসাঠাসি বাস':s.bribe>0?'চা-পানিতে ম্যানেজ, ওভারলোড নিয়েও ছাড় পেল বাস':money>=400?'রেকর্ড আয় নিয়ে মতিঝিলে পৌঁছাল বাস, কন্ডাক্টরের মুখে হাসি':'অবশেষে মতিঝিলে পৌঁছাল বাস, কন্ডাক্টরের জামা ছেঁড়া';
+  $('ph').textContent=h;
+  $('ps').innerHTML='আয় ৳'+toBn(money)+' · যাত্রী '+toBn(s.boarded)+' জন<br>ভাড়া ফাঁকি '+toBn(s.cheat)+' · ফেলে আসা '+toBn(s.left)+'<br>"আরো আগায়ে যান" '+toBn(s.sq)+' বার · চা-পানি '+toBn(s.bribe)+' বার';
+  window._share='"'+h+'" — আরো আগায়ে যান মামা! গেমে আমার আয় ৳'+toBn(money)+'। তুমি পারবে? '+location.href;
+  setTimeout(()=>$('over').classList.remove('hide'),500);
+}
+$('go').onclick=start;$('again').onclick=start;
+$('share').onclick=async function(){
+  try{if(navigator.share){await navigator.share({text:window._share});return}}catch(e){}
+  try{await navigator.clipboard.writeText(window._share);this.textContent='কপি হয়েছে ✓'}catch(e){this.textContent='শেয়ার হলো না'}
+};
+$('sq').onclick=()=>{
+  if(st!=='stop'&&st!=='drive')return;
+  if(sq>=2){say('আর জায়গা নাই মামা!');sBad();return}
+  sq++;stat.sq++;rage=Math.min(100,rage+5);say(SQ[Math.floor(Math.random()*SQ.length)]);sTap();
+};
+$('go2').onclick=()=>{if(st==='stop')depart()};
+$('tea').onclick=()=>{
+  if(!pol.active||pol.bribed)return;
+  pol.bribed=true;money-=40;stat.bribe++;pop(W/2,busTop+bh+30,'চা-পানি ☕ −৳৪০','#ffd23f',20);sCoin();
+};
+
+function hitTest(x,y){
+  let best=null,bd=1e9;
+  for(const p of pass)if(p.st==='in'&&p.need>0){
+    if(Math.abs(p.x-x)<26&&Math.abs(p.y-8-y)<36){const d=Math.hypot(p.x-x,p.y-y);if(d<bd){bd=d;best=p}}
+  }
+  if(best)return{p:best,k:'fare'};
+  if(st==='stop')for(const p of pass)if(p.st==='wait'){
+    const d=Math.hypot(p.x-x,p.y-y);if(d<38&&d<bd){bd=d;best=p}
+  }
+  return best?{p:best,k:'board'}:null;
+}
+cv.addEventListener('pointerdown',e=>{
+  if(st!=='stop'&&st!=='drive')return;
+  const r=cv.getBoundingClientRect(),h=hitTest(e.clientX-r.left,e.clientY-r.top);
+  if(!h)return;const p=h.p;
+  if(h.k==='fare'){
+    p.need--;
+    if(p.need>0){pop(p.x,p.y-34,'ভাড়া কমান!','#ffd23f',16);sTap()}
+    else{money+=p.fare;pop(p.x,p.y-34,'+৳'+toBn(p.fare),'#7ddc7a',20);sCoin()}
+  }else{
+    if(inside()<cap()){
+      for(let s=0;s<20;s++)if(!pass.some(q=>q.st==='in'&&q.slot===s)){const sp=slotPos(s);p.st='in';p.slot=s;p.tx=sp.x;p.ty=sp.y;stat.boarded++;break}
+      sTap();
+    }else{pop(p.x,p.y-30,'জায়গা নাই ভাই!','#ff6b6b',17);rage=Math.min(100,rage+1.5);sBad()}
+  }
+});
+addEventListener('keydown',e=>{if(e.key===' '&&st==='stop')depart()});
+
+function update(dt){
+  t+=dt;
+  if(st==='stop'||st==='drive'){
+    const n=inside();
+    if(n>8)rage+=(n-8)*.1*dt;else rage=Math.max(0,rage-.4*dt);
+    phT-=dt;
+    if(st==='stop'){if(phT<=0)depart()}
+    else{
+      dist+=280*dt;
+      if(pol.legs.includes(si)&&!pol.done&&DRIVET-phT>3.5){pol.done=true;pol.active=true;pol.t=3.5;pol.bribed=false;sSiren()}
+      if(pol.active){
+        pol.t-=dt;
+        if(pol.t<=0){
+          pol.active=false;
+          if(inside()>12&&!pol.bribed){money-=150;stat.fine++;rage=Math.min(100,rage+10);pop(W/2,busTop+bh+30,'ওভারলোড! জরিমানা −৳১৫০','#ff6b6b',20);sBad()}
+          else if(inside()<=12)pop(W/2,busTop+bh+30,'পুলিশ ছেড়ে দিল','#fff',18);
+        }
+      }
+      if(phT<=0)newStop(si+1);
+    }
+    quipT-=dt;
+    if(quipT<=0&&inside()>0){quipT=2.5+Math.random()*2.5;pop(busX+40+Math.random()*(busW-120),busTop-4,QUIP[Math.floor(Math.random()*QUIP.length)],'#fff',15)}
+    if(rage>=100){rage=100;finish(false)}
+  }
+  pass.forEach(p=>{
+    const k=Math.min(dt*10,1);p.x+=(p.tx-p.x)*k;p.y+=(p.ty-p.y)*k;
+    if(p.st==='out')p.fade-=dt*1.4;
+  });
+  pass=pass.filter(p=>p.fade>0);
+  pops.forEach(o=>{o.life-=dt;o.y-=dt*26});pops=pops.filter(o=>o.life>0);
+  if(sayO){sayO.life-=dt;if(sayO.life<=0)sayO=null}
+  const play=st==='stop'||st==='drive';
+  $('bar').classList.toggle('hide',!play);
+  $('go2').disabled=st!=='stop';$('tea').disabled=!pol.active||pol.bribed;
+}
+
+function rr(x,y,w,h,r){ctx.beginPath();ctx.roundRect?ctx.roundRect(x,y,w,h,r):ctx.rect(x,y,w,h)}
+function bub(x,y,txt,hot){
+  ctx.save();ctx.translate(x,y);if(hot){const s=1+.08*Math.sin(t*10);ctx.scale(s,s)}
+  ctx.font='700 13px '+F;const w=ctx.measureText(txt).width+14;
+  ctx.fillStyle=hot?'#e63946':'#ffd23f';rr(-w/2,-10,w,20,10);ctx.fill();
+  ctx.fillStyle=hot?'#fff':'#3a2410';ctx.fillText(txt,0,1);ctx.restore();
+}
+function draw(){
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillStyle='#2b2d42';ctx.fillRect(0,0,W,H);
+  const g=ctx.createLinearGradient(0,hudH,0,pavTop);g.addColorStop(0,'#f7c97a');g.addColorStop(1,'#f4a261');
+  ctx.fillStyle=g;ctx.fillRect(0,hudH,W,pavTop-hudH);
+  // buildings
+  const off=(dist*.25)%BTW,cols=['#7a4a5e','#5c3d6b','#8a5a44'];
+  for(let rep=-1;rep<Math.ceil(W/BTW)+1;rep++){let x=rep*BTW-off;
+    bld.forEach(b=>{const h=b.h*phH;ctx.fillStyle=cols[b.c];ctx.fillRect(x,pavTop-h,b.w,h);x+=b.w+4})}
+  ctx.fillStyle='#c9c2b4';ctx.fillRect(0,pavTop,W,busTop+bh*.6-pavTop);
+  ctx.fillStyle='#4a4a52';ctx.fillRect(0,busTop+bh*.6,W,H);
+  ctx.strokeStyle='#e9e2c8';ctx.lineWidth=4;ctx.setLineDash([30,26]);ctx.lineDashOffset=-dist;
+  const ly=busTop+bh+50;ctx.beginPath();ctx.moveTo(0,ly);ctx.lineTo(W,ly);ctx.stroke();ctx.setLineDash([]);
+  // waiting
+  const sz=Math.min(42,gw/8*.9);
+  pass.forEach(p=>{if(p.st==='wait'){ctx.font=sz+'px sans-serif';ctx.fillText(p.e,p.x,p.y+Math.sin(t*3+p.x)*2)}});
+  // bus
+  ctx.save();ctx.translate(0,st==='drive'?Math.sin(t*14)*1.5:0);
+  const bb=bh-30;
+  ctx.fillStyle='#d9492b';rr(busX,busTop,busW,bb,16);ctx.fill();
+  ctx.fillStyle='#f6c445';ctx.fillRect(busX,busTop+bb-34,busW,8);
+  ctx.fillStyle='#ffe9b8';rr(busX+10,busTop+12,busW-20,bb-50,10);ctx.fill();
+  ctx.fillStyle='#fff8e7';ctx.font='700 14px '+F;ctx.textAlign='left';
+  ctx.fillText('ঠাসাঠাসি পরিবহন',busX+16,busTop+bb-12);
+  ctx.textAlign='right';ctx.fillStyle=inside()>=cap()?'#ffd23f':'#fff8e7';
+  ctx.fillText('ভিতরে '+toBn(inside())+'/'+toBn(cap()),busX+busW-16,busTop+bb-12);ctx.textAlign='center';
+  const ps=Math.min(34,busW/10*.82);
+  pass.forEach(p=>{
+    if(p.st==='wait')return;
+    ctx.globalAlpha=Math.max(0,p.fade);ctx.font=ps+'px sans-serif';ctx.fillText(p.e,p.x,p.y);ctx.globalAlpha=1;
+  });
+  pass.forEach(p=>{if(p.st==='in'&&p.need>0){
+    const hot=p.dest===si+1&&st==='drive';
+    bub(p.x,p.y-ps*.75,'৳'+toBn(p.fare)+(p.need>1?' ×২':''),hot);
+  }});
+  ctx.fillStyle='#1d1d1d';[busX+60,busX+busW-60].forEach(x=>{ctx.beginPath();ctx.arc(x,busTop+bb,20,0,6.283);ctx.fill()});
+  ctx.fillStyle='#999';[busX+60,busX+busW-60].forEach(x=>{ctx.beginPath();ctx.arc(x,busTop+bb,7,0,6.283);ctx.fill()});
+  ctx.restore();
+  // say bubble
+  if(sayO){
+    ctx.font='700 16px '+F;const w=ctx.measureText(sayO.text).width+24,x=W/2,y=busTop-16;
+    ctx.fillStyle='#fff';rr(x-w/2,y-16,w,32,12);ctx.fill();
+    ctx.beginPath();ctx.moveTo(x-8,y+15);ctx.lineTo(x,y+26);ctx.lineTo(x+8,y+15);ctx.fill();
+    ctx.fillStyle='#2b1a12';ctx.fillText(sayO.text,x,y+1);
+  }
+  // police
+  if(pol.active){
+    ctx.font='54px sans-serif';ctx.fillText('👮',gx+48,busTop+bh+22);
+    ctx.font='700 20px '+F;ctx.fillStyle=Math.sin(t*14)>0?'#ff5a4d':'#ffd23f';
+    ctx.fillText('পুলিশ! ওভারলোড চেক',W/2+30,busTop+bh+22);
+    ctx.font='700 14px '+F;ctx.fillStyle='#fff';ctx.fillText(inside()>12?'১২ জনের বেশি আছে, চা-পানি দিন!':'ঠিক আছে, চুপ থাকুন',W/2+30,busTop+bh+48);
+  }
+  // pops
+  pops.forEach(o=>{ctx.globalAlpha=Math.min(1,o.life*2);ctx.font='700 '+o.size+'px '+F;ctx.lineWidth=5;ctx.strokeStyle='#2b1a12';ctx.strokeText(o.text,o.x,o.y);ctx.fillStyle=o.col;ctx.fillText(o.text,o.x,o.y);ctx.globalAlpha=1});
+  // HUD
+  ctx.fillStyle='#2b2d42';ctx.fillRect(0,0,W,hudH);
+  ctx.font='700 19px '+F;ctx.fillStyle='#fff8e7';ctx.textAlign='left';
+  const lbl=st==='drive'?'যাচ্ছে: '+STOPS[Math.min(si+1,LAST)]:st==='menu'?'মহাখালী → মতিঝিল':'এখন: '+STOPS[si];
+  ctx.fillText(lbl,gx+12,22);
+  ctx.textAlign='right';ctx.fillStyle='#7ddc7a';ctx.fillText('৳ '+toBn(money),gx+gw-12,22);
+  ctx.textAlign='left';ctx.font='700 14px '+F;ctx.fillStyle='#fff8e7';ctx.fillText('যাত্রীর রাগ 😡',gx+12,52);
+  ctx.fillStyle='rgba(255,255,255,.2)';rr(gx+120,44,gw-132,16,8);ctx.fill();
+  ctx.fillStyle=rage>70?'#ff5a4d':rage>40?'#ffb347':'#7ddc7a';rr(gx+120,44,Math.max(8,(gw-132)*Math.min(rage,100)/100),16,8);ctx.fill();
+  if(st==='stop'){ctx.fillStyle='#ffd23f';ctx.fillRect(gx,hudH-4,gw*Math.max(0,phT)/STOPT,4)}
+}
+let last=performance.now();
+function loop(n){const dt=Math.min((n-last)/1000,.05);last=n;update(dt);draw();requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

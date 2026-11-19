@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>ঘুড়ি ভো-কাট্টা (Ghuri Bho-Kata) – ফ্রি বাংলা অনলাইন গেম</title>
+<meta name="description" content="ঘুড়ি ভো-কাট্টা (Ghuri Bho-Kata): ছাদ থেকে ঘুড়ি ওড়াও, শত্রুর সুতো কেটে দাও। ফোনের ব্রাউজারে ফ্রি অনলাইন ঘুড়ি-কাটাকাটির গেম।">
+<meta name="keywords" content="ঘুড়ি ভো-কাট্টা, Ghuri Bho-Kata, ঘুড়ি গেম, kite fighting game, ঘুড়ি উড়ানো গেম, Bangla browser game">
+<meta name="author" content="Mahee">
+<link rel="canonical" href="https://YOUR-SITE.vercel.app/ghuri/">
+<meta property="og:type" content="website"><meta property="og:title" content="ঘুড়ি ভো-কাট্টা (Ghuri Bho-Kata) – ফ্রি বাংলা অনলাইন গেম"><meta property="og:description" content="ঘুড়ি ভো-কাট্টা (Ghuri Bho-Kata): ছাদ থেকে ঘুড়ি ওড়াও, শত্রুর সুতো কেটে দাও। ফোনের ব্রাউজারে ফ্রি অনলাইন ঘুড়ি-কাটাকাটির গেম।"><meta property="og:url" content="https://YOUR-SITE.vercel.app/ghuri/"><meta property="og:locale" content="bn_BD">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="ঘুড়ি ভো-কাট্টা (Ghuri Bho-Kata) – ফ্রি বাংলা অনলাইন গেম"><meta name="twitter:description" content="ঘুড়ি ভো-কাট্টা (Ghuri Bho-Kata): ছাদ থেকে ঘুড়ি ওড়াও, শত্রুর সুতো কেটে দাও। ফোনের ব্রাউজারে ফ্রি অনলাইন ঘুড়ি-কাটাকাটির গেম।">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoGame", "name": "ঘুড়ি ভো-কাট্টা", "alternateName": ["Ghuri Bho-Kata", "Ghuri Vo Kata", "Ghuri Bhokata game"], "description": "ঘুড়ি ভো-কাট্টা (Ghuri Bho-Kata): ছাদ থেকে ঘুড়ি ওড়াও, শত্রুর সুতো কেটে দাও। ফোনের ব্রাউজারে ফ্রি অনলাইন ঘুড়ি-কাটাকাটির গেম।", "url": "https://YOUR-SITE.vercel.app/ghuri/", "inLanguage": "bn", "genre": "Casual", "gamePlatform": ["Web browser", "Android", "iOS"], "applicationCategory": "Game", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BDT"}, "author": {"@type": "Person", "name": "Mahee", "url": "https://abmmahi.github.io"}, "isPartOf": {"@type": "WebSite", "name": "খেলাঘর", "url": "https://YOUR-SITE.vercel.app/"}}</script>
+<meta name="theme-color" content="#3b1f5e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#fff4e0;--btn:#ffb347;--btn-ink:#2b1633}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#2b1633;overflow:hidden;touch-action:none;font-family:'Hind Siliguri',system-ui,sans-serif;color:var(--ink);-webkit-user-select:none;user-select:none}
+canvas{display:block;width:100%;height:100%}
+.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;background:rgba(43,22,51,.72)}
+.screen.hide{display:none}
+h1{margin:0;font-size:clamp(44px,12vw,92px);line-height:1;font-weight:700;letter-spacing:-.02em}
+p{margin:0;max-width:30ch;font-size:18px;line-height:1.5}
+button{font:inherit;font-weight:700;font-size:20px;padding:12px 30px;border:0;border-radius:999px;background:var(--btn);color:var(--btn-ink);cursor:pointer}
+button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.small{font-size:15px;opacity:.8}
+.home{position:fixed;left:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:20;padding:6px 14px;border-radius:999px;background:rgba(0,0,0,.5);color:#fff;font:700 14px 'Hind Siliguri',sans-serif;text-decoration:none}
+</style>
+</head>
+<body>
+<a class="home" href="/">← হোম</a>
+<canvas id="c"></canvas>
+<div class="screen" id="start">
+  <h1>ঘুড়ি<br>ভো-কাট্টা!</h1>
+  <p>ছাদ থেকে ঘুড়ি ওড়াও। অন্য ঘুড়ির সুতোয় নিজের সুতো ঘষে কেটে দাও।</p>
+  <p class="small">আঙুল বা মাউস দিয়ে ঘুড়ি চালাও। সুতো যেখানে কাটাকাটি করে, সেখানে জোরে নাড়াও। তোমার ৩টি জীবন।</p>
+  <button id="go">শুরু করো</button>
+</div>
+<div class="screen hide" id="over">
+  <h1 id="ot">ঘুড়ি কেটে গেল</h1>
+  <p id="os"></p>
+  <button id="again">আবার খেলো</button>
+</div>
+<script>
+(()=>{
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let W,H,dpr,city=[];
+function resize(){
+  dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+  cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  city=[];let x=-10,s=7;
+  while(x<W+60){s=(s*9301+49297)%233280;const w=40+(s%50),h=H*(.05+(s%100)/100*.09);
+    city.push({x,w,h,tank:s%3===0});x+=w+3;}
+}
+addEventListener('resize',resize);resize();
+
+// audio
+let ac;
+function tone(f,d,type='square',v=.06,delay=0){
+  if(!ac)return;try{
+    const o=ac.createOscillator(),g=ac.createGain(),t=ac.currentTime+delay;
+    o.type=type;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);
+    o.connect(g).connect(ac.destination);o.start(t);o.stop(t+d);
+  }catch(e){}
+}
+const sfx={cut:()=>[523,659,784,1047].forEach((f,i)=>tone(f,.18,'square',.06,i*.08)),
+  lose:()=>[400,300,200,120].forEach((f,i)=>tone(f,.22,'sawtooth',.06,i*.1)),
+  zip:()=>tone(900+Math.random()*400,.04,'triangle',.015)};
+
+// state
+const COL=['#e63946','#2a9d8f','#f4d35e','#7b2cbf','#00b4d8','#ff6fb5'];
+let st='menu',score=0,level=1,lives=3,best=0,t=0,msg=null,pending=0;
+try{best=+localStorage.getItem('ghuri_best')||0}catch(e){}
+const P={x:0,y:0,px:0,py:0,col:'#ff7a1a',alive:true};
+const tgt={x:0,y:0};let touch=false;
+let enemies=[];
+
+function anchorP(){return{x:W/2,y:H}}
+function spawn(){
+  enemies=[];const n=Math.min(1+level,5);
+  for(let i=0;i<n;i++){
+    enemies.push({ax:W*(.08+.84*(i+Math.random()*.6)/n),ph:Math.random()*6.28,sp:.35+.07*level+Math.random()*.2,
+      col:COL[(i+level)%COL.length],x:W/2,y:-60,px:0,py:0,hot:0,ph2:0,fall:false,vy:0,rot:0,cut:false,x0:0});
+  }
+}
+function resetPlayer(){P.x=P.px=tgt.x=W/2;P.y=P.py=tgt.y=H*.5;P.alive=true}
+function start(){
+  if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}
+  if(ac&&ac.state==='suspended')ac.resume();
+  score=0;level=1;lives=3;msg=null;pending=0;resetPlayer();spawn();st='play';
+  document.getElementById('start').classList.add('hide');document.getElementById('over').classList.add('hide');
+}
+document.getElementById('go').onclick=start;
+document.getElementById('again').onclick=start;
+
+// input
+function setT(e){
+  const r=cv.getBoundingClientRect();
+  tgt.x=Math.max(20,Math.min(W-20,e.clientX-r.left));
+  tgt.y=Math.max(H*.08,Math.min(H*.82,e.clientY-r.top-(e.pointerType==='touch'?70:0)));
+}
+cv.addEventListener('pointerdown',e=>{touch=true;setT(e);cv.setPointerCapture(e.pointerId)});
+cv.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse'&&!touch)return;setT(e)});
+cv.addEventListener('pointerup',()=>{touch=false});
+
+function hit(a,b,c,d){
+  const k=(b.x-a.x)*(d.y-c.y)-(b.y-a.y)*(d.x-c.x);if(!k)return null;
+  const u=((c.x-a.x)*(d.y-c.y)-(c.y-a.y)*(d.x-c.x))/k,v=((c.x-a.x)*(b.y-a.y)-(c.y-a.y)*(b.x-a.x))/k;
+  return(u>0&&u<1&&v>0&&v<1)?{x:a.x+u*(b.x-a.x),y:a.y+u*(b.y-a.y)}:null;
+}
+function say(text,col,time=90){msg={text,col,time,max:time}}
+
+function update(dt){
+  t+=dt/60;
+  // player
+  if(P.alive){
+    P.px=P.x;P.py=P.y;
+    P.x+=(tgt.x-P.x)*Math.min(.25*dt,1);P.y+=(tgt.y-P.y)*Math.min(.25*dt,1);
+  }
+  const speed=Math.min(Math.hypot(P.x-P.px,P.y-P.py)/dt,28);
+  const A=anchorP();
+  let all=true;
+  enemies.forEach(e=>{
+    if(e.fall){e.vy+=.25*dt;e.y+=e.vy*dt;e.x+=Math.sin(t*5+e.ph)*1.2*dt;e.rot+=.05*dt;return}
+    all=false;
+    const k=.35*(.5+.5*Math.sin(t*.5+e.ph));
+    const ox=e.ax+Math.sin(t*e.sp+e.ph)*W*.3,oy=H*.18+(Math.sin(t*e.sp*.7+e.ph*2)+1)*.5*H*.4;
+    const tx=ox*(1-k)+P.x*k,ty=oy*(1-k)+P.y*k;
+    if(e.y<0){e.x=tx;e.y=-20}
+    e.x+=(tx-e.x)*.03*dt;e.y+=(ty-e.y)*.03*dt;
+    e.x=Math.max(20,Math.min(W-20,e.x));
+    e.sx=e.x-e.px;e.px=e.x;
+    // string contact
+    const h=P.alive?hit(A,P,{x:e.ax,y:H},e):null;
+    if(h){
+      e.contact=h;e.hot+=(0.4+.07*level)*dt;e.ph2+=speed*.14*dt;
+      if(Math.random()<.2)sfx.zip();
+      if(e.ph2>=100){e.fall=true;e.vy=-2;e.contact=null;score+=10*level;sfx.cut();say('ভো-কাট্টা!','#ffd23f');}
+      else if(e.hot>=100){loseLife();}
+    }else{e.contact=null;e.hot=Math.max(0,e.hot-1.2*dt);e.ph2=Math.max(0,e.ph2-1.2*dt)}
+  });
+  enemies=enemies.filter(e=>e.y<H+120);
+  if(st==='play'&&enemies.length===0&&!pending){
+    pending=1;say('পরের রাউন্ড!','#fff4e0',80);
+    setTimeout(()=>{if(st!=='play')return;level++;spawn();pending=0;},1400);
+  }
+  if(msg){msg.time-=dt;if(msg.time<=0)msg=null}
+}
+function loseLife(){
+  lives--;sfx.lose();enemies.forEach(e=>{e.hot=0;e.ph2=0;e.contact=null});
+  if(lives<=0){
+    st='over';P.alive=false;
+    if(score>best){best=score;try{localStorage.setItem('ghuri_best',best)}catch(e){}}
+    document.getElementById('os').textContent='স্কোর '+score+' · সেরা '+best+' · রাউন্ড '+level;
+    setTimeout(()=>document.getElementById('over').classList.remove('hide'),700);
+  }else{say('তোমার ঘুড়ি কেটে গেল!','#ff6b6b',100);resetPlayer()}
+}
+
+// drawing
+function kite(x,y,col,rot,s,flip){
+  ctx.save();ctx.translate(x,y);ctx.rotate(rot);
+  const pts=[[0,-s*1.1],[s*.8,0],[0,s*1.2],[-s*.8,0]];
+  ctx.fillStyle=col;ctx.beginPath();ctx.moveTo(0,-s*1.1);ctx.lineTo(s*.8,0);ctx.lineTo(0,s*1.2);ctx.lineTo(0,-s*1.1);ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,.72)';ctx.beginPath();ctx.moveTo(0,-s*1.1);ctx.lineTo(-s*.8,0);ctx.lineTo(0,s*1.2);ctx.closePath();ctx.fill();
+  ctx.strokeStyle='rgba(40,20,50,.55)';ctx.lineWidth=1.2;
+  ctx.beginPath();ctx.moveTo(0,-s*1.1);ctx.lineTo(0,s*1.2);ctx.moveTo(-s*.8,0);ctx.lineTo(s*.8,0);ctx.stroke();
+  ctx.strokeStyle=col;ctx.lineWidth=2.2;ctx.beginPath();ctx.moveTo(0,s*1.2);
+  for(let i=1;i<=7;i++)ctx.lineTo(Math.sin(t*6+i*1.1+(flip?3:0))*s*.28*(i/4),s*1.2+i*s*.28);
+  ctx.stroke();ctx.restore();
+}
+function string(ax,ay,x,y,col,w){
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(ax,ay);
+  const sag=Math.min(40,Math.hypot(x-ax,y-ay)*.05);
+  ctx.quadraticCurveTo((ax+x)/2,(ay+y)/2+sag,x,y);ctx.stroke();
+}
+function bar(x,y,v,col){
+  ctx.fillStyle='rgba(0,0,0,.45)';ctx.fillRect(x-24,y,48,6);ctx.fillStyle=col;ctx.fillRect(x-24,y,48*Math.min(v/100,1),6);
+}
+function draw(){
+  const g=ctx.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'#3b1f5e');g.addColorStop(.45,'#c2417c');g.addColorStop(.8,'#ff9a52');g.addColorStop(1,'#ffcf7a');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='rgba(255,236,170,.9)';ctx.beginPath();ctx.arc(W*.78,H*.72,Math.min(W,H)*.09,0,6.283);ctx.fill();
+  // strings
+  const A=anchorP();
+  enemies.forEach(e=>{if(!e.fall&&e.y>-10)string(e.ax,H,e.x,e.y,'rgba(255,255,255,.8)',1.3)});
+  if(P.alive)string(A.x,A.y,P.x,P.y,'rgba(255,255,255,.95)',1.8);
+  enemies.forEach(e=>{if(e.y>-10)kite(e.x,e.y,e.col,e.fall?e.rot:Math.sin(t*2+e.ph)*.2+(e.sx||0)*.02,26,1)});
+  if(P.alive)kite(P.x,P.y,P.col,Math.sin(t*2)*.12+(P.x-P.px)*.02,30,0);
+  // contact meters
+  enemies.forEach(e=>{if(e.contact){
+    ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(e.contact.x,e.contact.y,5,0,6.283);ctx.fill();
+    bar(e.contact.x,e.contact.y-26,e.ph2,'#7CFC8A');bar(e.contact.x,e.contact.y-16,e.hot,'#ff5a5a');
+  }});
+  // city
+  ctx.fillStyle='#1d0f2b';
+  city.forEach(b=>{ctx.fillRect(b.x,H-b.h,b.w,b.h);if(b.tank){ctx.fillRect(b.x+b.w*.3,H-b.h-14,b.w*.4,14)}});
+  // hud
+  ctx.textBaseline='top';ctx.fillStyle='#fff4e0';ctx.font='700 22px "Hind Siliguri",sans-serif';
+  ctx.textAlign='left';ctx.fillText('স্কোর '+score,16,14);
+  ctx.textAlign='center';ctx.fillText('রাউন্ড '+level,W/2,14);
+  ctx.textAlign='right';ctx.fillText('♥'.repeat(Math.max(lives,0)),W-16,14);
+  if(st==='play'&&t<14&&enemies.length){
+    ctx.textAlign='center';ctx.font='500 15px "Hind Siliguri",sans-serif';ctx.globalAlpha=.85;
+    ctx.fillText('সবুজ = তোমার, লাল = শত্রুর। জোরে নাড়াও!',W/2,46);ctx.globalAlpha=1;
+  }
+  if(msg){
+    const k=msg.time/msg.max,sc=1+Math.max(0,k-.8)*3;
+    ctx.save();ctx.globalAlpha=Math.min(1,k*3);ctx.translate(W/2,H*.4);ctx.scale(sc,sc);
+    ctx.font='700 '+Math.min(64,W*.13)+'px "Hind Siliguri",sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.lineWidth=6;ctx.strokeStyle='#2b1633';ctx.strokeText(msg.text,0,0);ctx.fillStyle=msg.col;ctx.fillText(msg.text,0,0);ctx.restore();
+  }
+}
+
+let last=performance.now();
+function loop(n){
+  const dt=Math.min((n-last)/16.67,3);last=n;
+  if(st==='play')update(dt);else{t+=dt/60;if(st==='over')update(dt)}
+  if(st==='menu'){P.x=W/2+Math.sin(t)*W*.2;P.y=H*.4+Math.cos(t*.8)*40;P.px=P.x;P.py=P.y}
+  draw();requestAnimationFrame(loop);
+}
+resetPlayer();requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
