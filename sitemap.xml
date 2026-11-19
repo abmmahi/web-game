@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://YOUR-SITE.vercel.app/</loc><priority>1.0</priority></url>
+  <url><loc>https://YOUR-SITE.vercel.app/ghuri/</loc><priority>0.9</priority></url>
+  <url><loc>https://YOUR-SITE.vercel.app/chacha/</loc><priority>0.9</priority></url>
+  <url><loc>https://YOUR-SITE.vercel.app/bus/</loc><priority>0.9</priority></url>
+  <url><loc>https://YOUR-SITE.vercel.app/aam/</loc><priority>0.9</priority></url>
+</urlset>
